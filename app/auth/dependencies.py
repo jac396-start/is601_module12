@@ -68,7 +68,8 @@ def get_current_user(
         raise credentials_exception
 
 def get_current_active_user(
-   ) -> UserResponse:
+   current_user: UserResponse = Depends(get_current_user),
+    **kwargs) -> UserResponse:
     """
     Dependency to ensure that the current user is active.
     """
