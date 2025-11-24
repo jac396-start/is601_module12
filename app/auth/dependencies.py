@@ -7,7 +7,7 @@ from app.models.user import User
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
-def get_current__user(
+def get_current_user(
     token: str = Depends(oauth2_scheme)
 ) -> UserResponse:
     """
@@ -68,8 +68,7 @@ def get_current__user(
         raise credentials_exception
 
 def get_current_active_user(
-    current_user: UserResponse = Depends(get_current_user)
-) -> UserResponse:
+   ) -> UserResponse:
     """
     Dependency to ensure that the current user is active.
     """
